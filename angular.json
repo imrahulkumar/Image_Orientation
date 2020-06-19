@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "imageOrientation"
+    }
+  },
+  "defaultProject": "imageOrientation",
+  "cli": {
+    "analytics": "fa02b0e3-0b63-4a51-bc2c-af08c2eddcbd"
+  }
 }
