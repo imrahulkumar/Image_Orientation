@@ -6,4 +6,4 @@ We want to change the orientation of the image that is binded using image url. T
 ```shell
 npm i ngx-image-cropper
 ```
-##### [Demo](http://imageorientation.surge.sh/)
+##### Click here for [Demo](http://imageorientation.surge.sh/)
