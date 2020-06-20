@@ -12,13 +12,15 @@ export class AppComponent {
   imageChangedEvent: any = '';
   croppedImage: any = '';
   canvasRotation = 0;
+  imageIndex = 0;
+  imageUrl: any[] = ['https://i.picsum.photos/id/443/200/200.jpg?hmac=ceI_qNYuyS_i8MicdRztsYDJLek0_-IDsEwLhAfaIEo',
+    'https://i.picsum.photos/id/372/200/200.jpg?hmac=QFGGlcWGNWBK0oDD1jghIaCvGIFU5iJJcd2VhF5oH6o']
 
+  file: any;
   imageCropped(event: ImageCroppedEvent) {
     this.croppedImage = event.base64;
   }
   cropperReady(e) {
-    // transformedBase64
-    console.log(this.el)
     this.getFileTypeBlob(this.el.transformedBase64, this.el.format)
     this.el.cropper.x1 = 0;
     this.el.cropper.y1 = 0;
@@ -39,10 +41,7 @@ export class AppComponent {
     let phase2 = phase1.split(';')[0];
     let type = phase2.split(':')[1]
     let blob = this.dataURItoBlob(d);
-    let file = new File([blob], `${this.randomNameGenerator()}`, { type: type });
-    console.log("FILE", file);
-    const url = window.URL.createObjectURL(file);
-    window.open(url);
+    this.file = new File([blob], `${this.randomNameGenerator()}`, { type: type });
   }
 
 
@@ -75,5 +74,16 @@ export class AppComponent {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
+  }
+  next() {
+    this.imageIndex = (this.imageIndex + 1) % this.imageUrl.length;
+  }
+  prev() {
+    this.imageIndex = Math.abs((this.imageIndex - 1) % this.imageUrl.length);
+  }
+
+  download() {
+    const url = window.URL.createObjectURL(this.file);
+    window.open(url);
   }
 }

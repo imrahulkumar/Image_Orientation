@@ -1,0 +1,31 @@
+.container{
+    position: relative;
+}
+
+.left-rotate{
+    position: absolute;
+    left: 44%;
+}
+
+.right-rotate{
+    position: absolute;
+    right: 44%;
+}
+
+.left-next{
+    position: absolute;
+    right: 36%;
+    bottom: 50%;
+}
+
+.right-next{
+   
+    position: absolute;
+    left: 36%;
+    bottom: 50%;
+}
+.download{
+    position: absolute;
+    left: 48%;
+    bottom: -60px;
+}

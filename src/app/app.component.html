@@ -1,11 +1,24 @@
-<image-cropper
+
+<div class="container">
+  <image-cropper
   #el
-  [imageURL]="'https://i.picsum.photos/id/443/200/200.jpg?hmac=ceI_qNYuyS_i8MicdRztsYDJLek0_-IDsEwLhAfaIEo'"
+  [imageURL]="imageUrl[imageIndex]"
   [maintainAspectRatio]="true"
   [imageChangedEvent]="imageChangedEvent"
   [canvasRotation]="canvasRotation"
   (cropperReady)="cropperReady($event)"></image-cropper>
 
 
-  <button (click)="rotateLeft()">left</button>
-  <button (click)="rotateRight()">right</button>
+  <button (click)="rotateLeft()" class="left-rotate">left</button>
+  <button (click)="rotateRight()" class="right-rotate">right</button>
+
+
+
+  <button (click)="next()" class="left-next">next</button>
+  <button (click)="prev()" class="right-next">prev</button>
+  
+
+  <button (click)="download()" class="download">Download</button>
+</div>
+
+
